@@ -19,6 +19,12 @@ const handleUserInput = (data) => {
     connection.write("Move: down");
   } else if (data === 'd') {
     connection.write("Move: right");
+  } else if (data === '1') {
+    connection.write("Say: Hello everyone!");
+  } else if (data === '2') {
+    connection.write("Say: Having a great time!");
+  } else if (data === '3') {
+    connection.write("Say: Let's play fair!"); 
   } else if (data === '\u0003') {
     process.exit();
   }
