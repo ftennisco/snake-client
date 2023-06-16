@@ -2,10 +2,16 @@ const net = require("net");
 
 const connect = function () {
   const conn = net.createConnection({
-    host: "172.18.51.110",
+    host: "localhost",
     port: 50541,
   });
+
   conn.setEncoding("utf8");
+
+  conn.on("connect", () => {
+    console.log("Successfully connected to game server");
+    setName(conn, "F.T");
+  });
 
   conn.on("data", (data) => {
     console.log("Recieved data:", data);
@@ -16,6 +22,11 @@ const connect = function () {
 
   return conn;
 
+};
+
+const setName = function (conn, initials) {
+  const message = `Name: ${initials}`;
+  conn.write(message);
 };
 
 module.exports = { connect };
