@@ -11,6 +11,7 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
     setName(conn, "F.T");
+    // sendMoveUp(conn);
   });
 
   conn.on("data", (data) => {
@@ -26,6 +27,26 @@ const connect = function () {
 
 const setName = function (conn, initials) {
   const message = `Name: ${initials}`;
+  conn.write(message);
+};
+
+const sendMoveUp = function (conn) {
+  const message = "Move: up";
+  conn.write(message);
+};
+
+const sendMoveDown = function (conn) {
+  const message = "Move: down";
+  conn.write(message);
+};
+
+const sendMoveLeft = function (conn) {
+  const message = "Move: left";
+  conn.write(message);
+};
+
+const sendMoveRight = function (conn) {
+  const message = "Move: right";
   conn.write(message);
 };
 
