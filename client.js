@@ -40,26 +40,5 @@ const setName = function (conn, initials) {
   conn.write(message);
 };
 
-// Functions to send movement commands to the server
-const sendMoveUp = function (conn) {
-  const message = "Move: up";
-  conn.write(message);
-};
-
-const sendMoveDown = function (conn) {
-  const message = "Move: down";
-  conn.write(message);
-};
-
-const sendMoveLeft = function (conn) {
-  const message = "Move: left";
-  conn.write(message);
-};
-
-const sendMoveRight = function (conn) {
-  const message = "Move: right";
-  conn.write(message);
-};
-
 // Export the 'connect' function to be used by other modules
 module.exports = { connect };
